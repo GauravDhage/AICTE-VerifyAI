@@ -11,3 +11,4 @@ pillow>=10
 pytesseract>=0.3.10   # optional OCR fallback (needs the tesseract binary)
 httpx2>=0.1   # only needed for tests (starlette TestClient)
 pytest>=8   # tests only
+psycopg[binary]>=3.2

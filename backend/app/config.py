@@ -5,7 +5,10 @@ from pathlib import Path
 BASE_DIR = Path(__file__).resolve().parent.parent
 UPLOAD_DIR = Path(os.getenv("VERIFYAI_UPLOAD_DIR", BASE_DIR / "uploads"))
 REPORT_DIR = Path(os.getenv("VERIFYAI_REPORT_DIR", BASE_DIR / "reports"))
-DB_URL = os.getenv("VERIFYAI_DB_URL", f"sqlite:///{BASE_DIR / 'verifyai.db'}")
+DB_URL = os.getenv(
+    "DATABASE_URL",
+    os.getenv("VERIFYAI_DB_URL", f"sqlite:///{BASE_DIR / 'verifyai.db'}")
+)
 # DEMO ONLY: set a long random value via the environment for anything beyond a local demo.
 SECRET_KEY = os.getenv("VERIFYAI_SECRET", "demo-only-secret-change-me-0123456789abcdef")
 TOKEN_TTL_MINUTES = int(os.getenv("VERIFYAI_TOKEN_TTL_MIN", "480"))
